@@ -1,0 +1,8 @@
+Contact data:
+
+First Name: {{ first_name }}
+Last Name: {{  last_name }}
+Company: {{ company }}
+Email: {{ email }}
+Phone: {{ phone  }}
+Message: {{ message }}
