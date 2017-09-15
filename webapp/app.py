@@ -7,24 +7,26 @@ from flask import request
 from flask_mail import Message, Mail
 
 app = Flask(__name__)
-app.config.from_object('config')
-
+app.config.from_object('private_config')
 mail = Mail(app)
-
 projects = json.load(open("data/projects.json"))
 
 
 @app.after_request
 def after_request(response):
     response.headers.add('Access-Control-Allow-Origin', '*')
-    response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
-    response.headers.add('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS')
+    response.headers.add('Access-Control-Allow-Headers',
+                         'Content-Type,Authorization')
+    response.headers.add('Access-Control-Allow-Methods',
+                         'GET,PUT,POST,DELETE,OPTIONS')
     return response
 
 
 @app.route('/', methods=['GET'])
 def index():
-    return '<div style="margin: 100px auto;font-size: 96px; text-align: center;">Howdy partner</div>'
+    return """  <div style="margin: 100px auto;
+                font-size: 96px; text-align: center;">
+                Howdy partner</div>"""
 
 
 @app.route('/mailer/send/<string:domain>', methods=['POST'])
@@ -40,7 +42,8 @@ def contact_simple(domain):
     form_data = request.get_json()
     pprint(form_data)
 
-    if ('version' in form_data or 'version' in form_data) and 'captcha' not in form_data:
+    if (('version' in form_data or 'version' in form_data) and
+                'captcha' not in form_data):
         return 'Error'
 
     if form_data['captcha'] != "5":
@@ -74,16 +77,15 @@ def generic(domain):
     if not domain:
         return 'domain name required'
 
-    request_data = request.get_json()
-    form_data = request_data['data']
-
-    if ('version' in form_data or 'version' in form_data) and 'captcha' not in form_data:
-        return 'Error'
-
-    if form_data['captcha'] != 5:
-        return 'Error'
-
+    form_data = request.get_json()
     pprint(form_data)
+
+    if (('version' in form_data or 'version' in form_data) and
+                'captcha' not in form_data):
+        return 'Error'
+
+    if form_data['captcha'] != "5":
+        return 'Error'
 
     msg = Message(domain + ' Form Submission',
                   recipients=[projects[domain]['to']],

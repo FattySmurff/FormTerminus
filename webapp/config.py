@@ -4,7 +4,8 @@ import os
 
 # Global
 DEBUG = ast.literal_eval(os.environ.get('DEBUG', 'False'))
-SECRET_KEY = os.environ.get('SECRET_KEY', 'djsdhajdhashda13366ywglsa6ksnnnsggddfaosdsdhisudislskjwuw')
+SECRET_KEY = os.environ.get(
+    'SECRET_KEY', 'djsdhajdhashda13366ywglsa6ksnnnsggddfaosdsdhisudislskjwuw')
 PERMANENT_SESSION_LIFETIME = datetime.timedelta(days=30)
 
 # Flask-Mail
