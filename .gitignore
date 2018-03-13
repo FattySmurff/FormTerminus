@@ -3,3 +3,8 @@
 formterminus.iml
 webapp/.env/
 webapp/data/
+zappa_*
+python_private
+deploy.sh
+.env
+venv

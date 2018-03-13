@@ -7,7 +7,7 @@ from flask import request
 from flask_mail import Message, Mail
 
 app = Flask(__name__)
-app.config.from_object('private_config')
+app.config.from_object('config')
 mail = Mail(app)
 projects = json.load(open("data/projects.json"))
 
@@ -24,7 +24,7 @@ def after_request(response):
 
 @app.route('/', methods=['GET'])
 def index():
-    return """  <div style="margin: 100px auto;
+    return """<div style="margin: 100px auto;
                 font-size: 96px; text-align: center;">
                 Howdy partner</div>"""
 
