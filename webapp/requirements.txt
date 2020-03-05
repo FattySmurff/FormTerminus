@@ -16,7 +16,7 @@ gunicorn==19.7.1
 hjson==3.0.0
 idna==2.6
 itsdangerous==0.24
-Jinja2==2.10
+Jinja2==2.10.1
 jmespath==0.9.3
 kappa==0.6.0
 lambda-packages==0.16.1
@@ -32,5 +32,5 @@ tqdm==4.15.0
 troposphere==1.9.5
 Unidecode==0.4.21
 urllib3==1.24.2
-Werkzeug==0.14
+Werkzeug==0.15.3
 wsgi-request-logger==0.4.6
