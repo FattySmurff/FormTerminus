@@ -7,4 +7,4 @@ echo ===========================================================================
 echo
 
 cd webapp
-.env/bin/python app.py
+python app.py

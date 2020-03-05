@@ -8,3 +8,4 @@ python_private
 deploy.sh
 .env
 venv
+private_config.py
